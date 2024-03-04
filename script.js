@@ -66,6 +66,7 @@ function setRandomPosition(){
   } else if (currentLevel === 18){
     text = "Loading..."
     divPadding = `${0}px ${70}px`
+    count = 0
   } else if (currentLevel === 19){
     text = "game start"
     divPadding = `${0}px ${80}px`
