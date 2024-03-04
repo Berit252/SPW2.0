@@ -65,8 +65,8 @@ document.addEventListener('keydown', function(event) {
     newDiv.style.animation = 'slideIn 0.3s forwards'
     document.body.appendChild(newDiv)
 
-    count++
     document.getElementById('countDisplay').textContent = `point: ${count}`
+    count++
 
     if (count === 100) { // 一直计数到100
       document.getElementById('countDisplay').style.display = 'none'
