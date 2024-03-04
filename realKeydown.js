@@ -13,7 +13,7 @@ document.addEventListener('keydown', function(event) {
 
       if (currentLevel < 8) {
         lastBlock.parentNode.removeChild(lastBlock)
-      } else if (currentLevel >= 3) { 
+      } else { 
         // 应用动画
         lastBlock.style.animation = 'slideUp 0.2s forwards';
         // 监听动画结束事件
@@ -28,9 +28,9 @@ document.addEventListener('keydown', function(event) {
       currentLevel++
       startDiv(currentLevel)
 
-      if (currentLevel >= 18) {
-        document.getElementById('countDisplay').style.display = 'block'
-      }
+      // if (currentLevel >= 18) {
+      //   document.getElementById('countDisplay').style.display = 'block'
+      // }
     }
   }
 })
@@ -65,39 +65,46 @@ document.addEventListener('keydown', function(event) {
     newDiv.style.animation = 'slideIn 0.3s forwards'
     document.body.appendChild(newDiv)
 
-    document.getElementById('countDisplay').textContent = `point: ${count}`
     count++
+    document.getElementById('countDisplay').textContent = `point: ${count}`
+    document.getElementById('countDisplay').style.display = 'block'
 
-    if (count === 100) { // 一直计数到100
-      document.getElementById('countDisplay').style.display = 'none'
+    if (count === 100) { // 一直计数到100 
       // congratulationDiv
       let congratulationDiv = document.createElement('div')
       congratulationDiv.id = 'congratulation'
-      congratulationDiv.className = 'congratulation'
-      congratulationDiv.style.padding = `${220}px ${360}px`
+      congratulationDiv.style.padding = `${240}px ${320}px`
       congratulationDiv.textContent = 'Congratulation!'
+      congratulationDiv.className = 'congratulation'
       document.body.appendChild(congratulationDiv)
     } else if (count === 101) {
+      document.getElementById('countDisplay').style.display = 'none'
       let congratulationDiv = document.getElementById('congratulation')
       congratulationDiv.textContent = 'Total Score: 100 !!!'
     } else if (count === 102) {
+      document.getElementById('countDisplay').style.display = 'none'
       let congratulationDiv = document.getElementById('congratulation')
       congratulationDiv.textContent = 'Are you happy?'
     } else if (count === 103) {
+      document.getElementById('countDisplay').style.display = 'none'
       let congratulationDiv = document.getElementById('congratulation')
       congratulationDiv.textContent = 'Still there?'
+      congratulationDiv.style.padding = `${240}px ${360}px`
     } else if (count === 104) {
+      document.getElementById('countDisplay').style.display = 'none'
       let congratulationDiv = document.getElementById('congratulation')
-      congratulationDiv.textContent = 'HUMMMMMMMMMMM...'
+      congratulationDiv.textContent = 'HUMMMMMMMM...'
+      congratulationDiv.style.padding = `${240}px ${320}px`
     } else if (count === 105) {
+      document.getElementById('countDisplay').style.display = 'none'
       let congratulationDiv = document.getElementById('congratulation')
       congratulationDiv.textContent = 'EMMM... '
-      congratulationDiv.style.padding = `${180}px ${360}px`
+      congratulationDiv.style.padding = `${160}px ${300}px`
       congratulationDiv.appendChild(img)
     } else if (count === 106) {
       let congratulationDiv = document.getElementById('congratulation')
       congratulationDiv.textContent = 'Go ahead... '
-      congratulationDiv.style.padding = `${180}px ${360}px`
+      congratulationDiv.style.padding = `${160}px ${280}px`
       congratulationDiv.appendChild(img) 
     } else if (count === 107) {   // 这里放出来继续计数
       const congratulationDiv = document.getElementById('congratulation')
@@ -122,7 +129,7 @@ document.addEventListener('keydown', function(event) {
       block.parentNode.removeChild(block) 
     })
 
-    if (count === 150) {    // 终断颜色转换
+    if (count === 142) {    // 终断颜色转换
       currentLevel++
     }
   }
@@ -134,7 +141,7 @@ document.addEventListener('keydown', function(event) {
     console.log(count)
 
     let textDiv = document.getElementById('textDiv')
-    if (!textDiv && count === 152) { // 如果textDiv不存在且count为152，创建它
+    if (!textDiv && count === 143) { // 如果textDiv不存在且count为152，创建它
       let textDiv = document.createElement('div')
       textDiv.className = 'centered-text'
       textDiv.id = 'textDiv';
@@ -145,7 +152,6 @@ document.addEventListener('keydown', function(event) {
       document.body.style.backgroundColor = 'rgb(255,255,255)'
       const phrases = [
         "●",
-        "●",
         "○",
         "●",
         "○",
@@ -155,6 +161,7 @@ document.addEventListener('keydown', function(event) {
         "I'm●", 
         "I'm e●", 
         "I'm end●", 
+        "I'm endle●", 
         "I'm endless●", 
         "I'm endless..●",
         "I'm endless...●",
@@ -162,17 +169,26 @@ document.addEventListener('keydown', function(event) {
         "I'm endless.........●",
         "I'm endless...............●",
         "I'm endless.....................●",
-        "I'm endless..............................●",
+        "I'm endless...........................●",
+        "I'm endless.................................●",
+        "I'm endless....................................●",
+        "I'm endless..........................................●",
         "I'm endless.............................................●",
-        "I'm endless.............................................A●",
-        "I'm endless.............................................Are●",
-        "I'm endless.............................................Are y●",
-        "I'm endless.............................................Are yo●",
-        "I'm endless.............................................Are you●",
-        "I'm endless.............................................Are you?●",
-        "I'm endless.............................................Are you?.●",
-        "I'm endless.............................................Are you?...●",
-        "I'm endless.............................................Are you?......",
+        "I'm endless...................................................●",
+        "I'm endless...................................................A●",
+        "I'm endless...................................................Are●",
+        "I'm endless...................................................Are y●",
+        "I'm endless...................................................Are yo●",
+        "I'm endless...................................................Are you●",
+        "I'm endless...................................................Are you?●",
+        "I'm endless...................................................Are you?.●",
+        "I'm endless...................................................Are you?...●",
+        "I'm endless...................................................Are you?.........●",
+        "I'm endless...................................................Are you?............●",
+        "I'm endless...................................................Are you?...............●",
+        "I'm endless...................................................Are you?..................●",
+        "I'm endless...................................................Are you?..................●",
+        "I'm endless...................................................Are you?.....................",
         "●",
         "Ar●",
         "Are ●",
@@ -291,9 +307,10 @@ document.addEventListener('keydown', function(event) {
         "See y●",
         "See yo●",
         "See you●",
-        "See you."
+        "See you.",
+        "See you.."
       ]
-      textDiv.textContent = phrases[count - 152] || textDiv.textContent
+      textDiv.textContent = phrases[count - 143] || textDiv.textContent
     }
 
 
