@@ -1,4 +1,4 @@
-let currentLevel = 18
+let currentLevel = 1
 const divs = [
   2, 4, 8, 
   8, 16, 32, 
