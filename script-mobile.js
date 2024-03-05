@@ -1,3 +1,5 @@
+document.body.style.overflow = 'hidden'
+
 let divCounter = 0
 
 const blockWidth = 100
