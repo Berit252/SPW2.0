@@ -58,7 +58,8 @@ body {
   z-index: 10;
 }
 
-.restart p {
+.restart p,
+.restart-mobile p {
   padding: 2px 10px;
   margin: 0;
 }
@@ -66,6 +67,18 @@ body {
 .restart:hover {
   background-color: rgb(25,25,25);
   color: white;
+}
+
+.restart-mobile {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border: 1px solid rgb(25,25,25);
+  border-radius: 6px;
+  background-color: white;
+  color: rgb(25,25,25);
+  font-size: 26px;
+  z-index: 10;
 }
 
 .block {
@@ -125,4 +138,33 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   align-items: center;
+}
+
+
+.choicePC,
+.choiceM {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 20px 0;
+  width: 280px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(25,25,25);
+  color: white;
+}
+
+.choicePC {
+  top: 40%;
+}
+
+.choiceM {
+  top: 60%;
+}
+
+.choicePC a,
+.choiceM a {
+  text-decoration: none;
+  color: white;
 }

@@ -1,10 +1,17 @@
-// 本文件中为正常count数量, 为正式版
+let startY = 0
+
+document.addEventListener('touchstart', (e) => {
+  startY = e.touches[0].clientY
+}, false);
+
 
 // Level 19 前
-document.addEventListener('keydown', function(event) {
+document.addEventListener('touchend', (e) => {
+  let endY = e.changedTouches[0].clientY // Ending Y position
 
-  if (event.key === ' ' && currentLevel < 19) { 
-    event.preventDefault()
+  if (startY > endY + 50 && currentLevel < 19) { // 50 is the minimum distance for the swipe
+    console.log("Swipe Up Detected!")
+    
     // 选择所有具有'block'类名的div
     const allBlocks = document.querySelectorAll('.block')
 
@@ -29,20 +36,16 @@ document.addEventListener('keydown', function(event) {
       startDiv(currentLevel)
     }
   }
-})
+}, false)
+
 
 // Level 19 后
-let count = 0 
+document.addEventListener('touchend', (e) => {
+  let endY = e.changedTouches[0].clientY // Ending Y position
 
-let img = document.createElement('img')
-img.src = './img/C07B7177066264E81C6FE218BB3F8ADC.gif'
-img.alt = 'a gif here' // 设置替代文本
-let endImg
-let endImgTop = 300
+  if (startY > endY + 50 && currentLevel === 19) { // 50 is the minimum distance for the swipe
+    console.log("Swipe Up Detected!")
 
-document.addEventListener('keydown', function(event) {
-  if (event.key === ' ' && currentLevel === 19) {
-    event.preventDefault()
     // 应用消失动画到最后一个div
     const allBlocks = document.querySelectorAll('.block')
     if (allBlocks.length > 0) {
@@ -110,30 +113,27 @@ document.addEventListener('keydown', function(event) {
       document.getElementById('countDisplay').style.display = 'none'
       currentLevel++
     } 
-  }
 
-  // 20 (颜色转换效果)
-  if (event.key === ' ' && currentLevel === 20) {
-    event.preventDefault()
-    count++
-    console.log(count)
-    let swt = count % 2
-    let color = swt === 0 ? 'rgb(25,25,25)' : 'rgb(255,255,255)'
-    document.body.style.backgroundColor = color
-    const allBlocks = document.querySelectorAll('.block')   // 从这之后就没block了
-    allBlocks.forEach(function(block) {
-      block.parentNode.removeChild(block) 
-    })
+    // 20 (颜色转换效果)
+    if (startY > endY + 50 && currentLevel === 20) {
+      count++
+      console.log(count)
+      let swt = count % 2
+      let color = swt === 0 ? 'rgb(25,25,25)' : 'rgb(255,255,255)'
+      document.body.style.backgroundColor = color
+      const allBlocks = document.querySelectorAll('.block')   // 从这之后就没block了
+      allBlocks.forEach(function(block) {
+        block.parentNode.removeChild(block) 
+      })
 
-    if (count === 142) {    // 终断颜色转换
-      currentLevel++
+      if (count === 142) {    // 终断颜色转换
+        currentLevel++
+      }
     }
-  }
 
-  // 21 (textDiv上线)
-  if (event.key === ' ' && currentLevel === 21) {
-    event.preventDefault()
-    count++
+    // 21 (textDiv上线)
+    if (startY > endY + 50 && currentLevel === 22) {
+      count++
     console.log(count)
 
     let textDiv = document.getElementById('textDiv')
@@ -333,14 +333,7 @@ document.addEventListener('keydown', function(event) {
     if (count === 320) {
       restart()
     }
+    }
   }
-})
+}, false)
 
-
-
-// Restart Key
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'r') {
-    restart()
-  }
-})

@@ -13,13 +13,13 @@ function setRandomPosition(){
   let randomLeft = Math.random() * (window.innerWidth - blockWidth) * 0.9
   
   if (currentLevel === 1){
-    text = "press 'space' to delete"
-    divPadding = `${0}px ${20}px`
+    text = "slide up"
+    divPadding = `${0}px ${68}px`
   } else if (currentLevel === 2){
-    text = "press"
+    text = "sld up"
     divPadding = `${0}px ${70}px`
   } else if (currentLevel === 3){
-    text = "prs"
+    text = "sld"
     divPadding = `${0}px ${80}px`
   } else if (currentLevel === 4){
     text = "more?" 
@@ -55,8 +55,8 @@ function setRandomPosition(){
     text = "I'm not a game."
     divPadding = `${0}px ${46}px`
   } else if (currentLevel === 15){
-    text = "Are you still pressing?"
-    divPadding = `${0}px ${20}px`
+    text = "You still here?"
+    divPadding = `${0}px ${46}px`
   } else if (currentLevel === 16){
     text = "You really wanna a game?"
     divPadding = `${0}px ${18}px`
