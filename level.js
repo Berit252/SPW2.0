@@ -21,6 +21,7 @@ startDiv(currentLevel)
 function restart() {
   currentLevel = 1
   count = 0
+  endImgTop = 300
   document.getElementById('countDisplay').style.display = 'none'
 
   const allBlocks = document.querySelectorAll('.block')
